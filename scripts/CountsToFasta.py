@@ -53,7 +53,7 @@ if args.verbose == 0:
     logger.setLevel(logging.WARN)
 elif args.verbose == 1:
     logger.setLevel(logging.INFO)
-elif args.verbose == 2:
+elif args.verbose >= 2:
     logger.setLevel(logging.DEBUG)
 
 print("Initialize Counts File Stream.")

@@ -9,33 +9,44 @@ in counts format.
 The Counts Format
 -----------------
 
-This file format is used by PoMo and lists the base
-counts for every position.
+The input of PoMo is allele frequency data.  Especially, when
+populations have many individuals it is preferable to count the
+number of bases at each position.  This decreases file size and speeds
+up the parser.
 
-It contains:
-  - 1 line that specifies the file as counts file and states the
-    number of populations as well as the number of sites
-  - 1 headerline with tab separated sequence names
-  - N lines with counts of A, C, G and T bases at position n
+Counts files contain:
 
-It can contain:
-  - any number of lines that start with a #, these are treated as
-    comments; There are no more comments allowed after the headerline.
+- One headerline that specifies the file as counts file and states the
+  number of populations as well as the number of sites (separated by
+  white space).
+
+- A second headerline with white space separated headers: CRHOM
+  (chromosome), POS (position) and sequence names.
+
+- Many lines with counts of A, C, G and T bases and their respective
+  positions.
+
+Comments:
+
+- Lines starting with # before the first headerline are treated as
+  comments.
+
+A toy example:
 
 ::
 
-  COUNTSFILE \t NPOP 5 \t NSITES N
-  CHROM \t POS   \t Sheep   \t BlackSheep \t RedSheep \t Wolf    \t RedWolf
-  1  \t s     \t 0,0,1,0 \t 0,0,1,0    \t 0,0,1,0  \t 0,0,5,0 \t 0,0,0,1
-  1  \t s + 1 \t 0,0,0,1 \t 0,0,0,1    \t 0,0,0,1  \t 0,0,0,5 \t 0,0,0,1
-  .
-  .
-  .
-  9  \t 8373  \t 0,0,0,1 \t 1,0,0,0    \t 0,1,0,0  \t 0,1,4,0 \t 0,0,1,0
-  .
-  .
-  .
-  Y  \t end   \t 0,0,0,1 \t 0,1,0,0    \t 0,1,0,0  \t 0,5,0,0 \t 0,0,1,0
+    COUNTSFILE  NPOP 5   NSITES N
+    CHROM  POS  Sheep    BlackSheep  RedSheep  Wolf     RedWolf
+    1      1    0,0,1,0  0,0,1,0     0,0,1,0   0,0,5,0  0,0,0,1
+    1      2    0,0,0,1  0,0,0,1     0,0,0,1   0,0,0,5  0,0,0,1
+    .
+    .
+    .
+    9      8373 0,0,0,1  1,0,0,0     0,1,0,0   0,1,4,0  0,0,1,0
+    .
+    .
+    .
+    Y      9999 0,0,0,1  0,1,0,0     0,1,0,0   0,5,0,0  0,0,1,0
 
 Convert to Counts Format
 ------------------------
@@ -139,7 +150,7 @@ def interpret_cf_line(ln):
     """
     tmp = ln.strip()
     ln = tmp
-    lnL = ln.split('\t')
+    lnL = ln.split()
     l = len(lnL)
     if (l <= 2):
         raise NotACountsFormatFileError("Line contains no data.")
@@ -203,7 +214,7 @@ class CFStream():
             ln = CFFile.readline()
 
         # Read in headerline.
-        lnL = ln.split('\t')
+        lnL = ln.split()
         l = len(lnL)
         indivL = []
         if (lnL[0] in ["CHROM", "Chrom"]) and (lnL[1] in ["POS", "Pos"]):
@@ -895,13 +906,13 @@ class CFWriter():
         stringL = [self.chrom, str(self.pos + 1 + self.offset)]
         for data in self.cD:
             stringL.append(','.join(map(str, data)))
-        return '\t'.join(stringL)
+        return ' '.join(stringL)
 
     def __get_HLn(self):
         """Return a string containing the headerline in counts format."""
         strL = ["CHROM", "POS"]
         strL.extend(self.nL)
-        return '\t'.join(strL)
+        return ' '.join(strL)
 
     def set_force(self, val):
         """Sets *self.__force* to *val*.
@@ -1092,8 +1103,8 @@ class CFWriter():
         temp_fd = os.path.dirname(self.outFN)
         temp_path = os.path.join(temp_fd, temp_fn)
         fo = sb.gz_open(temp_path, mode='w')
-        print("COUNTSFILE\tNPOP ", self.nPop, "\tNSITES ",
-              self.baseCounter, sep='', file=fo)
+        print("COUNTSFILE NPOP", self.nPop, "NSITES",
+              self.baseCounter, file=fo)
         with sb.gz_open(self.outFN, mode='r') as f:
             for ln in f:
                 print(ln, file=fo, end='')

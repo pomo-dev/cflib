@@ -88,8 +88,8 @@ class Seq:
     """
     def __init__(self):
         self.name = None
-        self.descr = None
-        self.data = None
+        self.descr = ''
+        self.data = ''
         self.dataLen = 0
         self.rc = False
         self.gene_is_rc = False
