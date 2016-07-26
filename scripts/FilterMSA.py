@@ -8,15 +8,15 @@ http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html
 
 The filter options cannot be set with this script, but a file can be
 easily filtered using personal filter options with
-libPoMo.fasta.filter_mfa_str().  See this function for further
+cflib.fasta.filter_mfa_str().  See this function for further
 details.
 
 """
 
 import argparse
-import libPoMo.seqbase as sb
-import libPoMo.fasta as fa
-import libPoMo.cf as cf  # noqa
+import cflib.seqbase as sb
+import cflib.fasta as fa
+import cflib.cf as cf  # noqa
 
 descr = """Filter a multiple sequence alignment file.
 
@@ -26,7 +26,7 @@ http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html
 
 The filter options cannot be set with this script, but a file can be
 easily filtered using personal filter options with
-libPoMo.fasta.filter_mfa_str().  See this function for further
+cflib.fasta.filter_mfa_str().  See this function for further
 details.
 
 """

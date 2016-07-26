@@ -12,9 +12,9 @@ informative for phylogenetic analysis).
 """
 
 import argparse
-import libPoMo.fasta as fa  # noqa
-import libPoMo.vcf as vcf  # noqa
-import libPoMo.cf as cf  # noqa
+import cflib.fasta as fa  # noqa
+import cflib.vcf as vcf  # noqa
+import cflib.cf as cf  # noqa
 
 descr = """Convert a fasta file with VCF files to counts format.
 

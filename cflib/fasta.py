@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""libPoMo.fasta
+"""cflib.fasta
 ================
 
 This module provides functions to read, write and access fasta files.
@@ -31,8 +31,8 @@ Functions:
 """
 __docformat__ = 'restructuredtext'
 
-import libPoMo.seqbase as sb
-import libPoMo.vcf as vcf
+import cflib.seqbase as sb
+import cflib.vcf as vcf
 import sys
 import re
 
@@ -46,7 +46,7 @@ def read_seq_from_fo(line, fo, getAlignEndFlag=False):
     """Read a single fasta sequence.
 
     Read a single fasta sequence from file object *fo* and save it to
-    a new :class:`Seq <libPoMo.seqbase.Seq>` sequence object. Return
+    a new :class:`Seq <cflib.seqbase.Seq>` sequence object. Return
     the header line of the next fasta sequence and the newly created
     sequence. If no new sequence is found, the next header line will
     be set to None.
@@ -130,13 +130,13 @@ class FaStream():
 
     :param str name: Name of the stream.
     :param Seq firstSeq: First sequence (:class:`Seq
-                         <libPoMo.seqbase.Seq>` object) to be saved.
+                         <cflib.seqbase.Seq>` object) to be saved.
     :param str nextHL: Next header line.
     :param fo faFileObject: File object associated with the stream.
 
     :ivar str name: Stream name.
     :ivar Seq seq: Saved sequence (:class:`Seq
-                   <libPoMo.seqbase.Seq>` object)
+                   <cflib.seqbase.Seq>` object)
     :ivar str nextHeaderLine: Next header line.
     :ivar fo fo: File object that points to the start of the data of
                  the next sequence.
@@ -191,7 +191,7 @@ def read_align_from_fo(line, fo):
     """Read a single fasta alignment.
 
     Read a single fasta alignment from file object *fo* and save it to
-    new :class:`Seq <libPoMo.seqbase.Seq>` sequence objects.  Return
+    new :class:`Seq <cflib.seqbase.Seq>` sequence objects.  Return
     the header line of the next fasta alignment and the newly created
     sequences in a list.  If no new alignment is found, the next header
     line will be set to None.
@@ -238,7 +238,7 @@ class MFaStream():
 
     :ivar str name: Stream name.
     :ivar [Seq] seqL: Saved sequences (:class:`Seq
-                      <libPoMo.seqbase.Seq>` objects) in a list.
+                      <cflib.seqbase.Seq>` objects) in a list.
     :ivar int nSpecies: Number of saved sequences / species in the alignment.
     :ivar str nextHeaderLine: Next header line.
     :ivar fo fo: File object that points to the start of the data of
@@ -580,7 +580,7 @@ class FaSeq():
     """Store sequence data retrieved from a fasta file.
 
     :ivar str name: Name of the `FaSeq` object.
-    :ivar [Seq] seqL: List of :class:`Seq <libPoMo.seqbase.Seq>`
+    :ivar [Seq] seqL: List of :class:`Seq <cflib.seqbase.Seq>`
                       objects that store the actual sequence data.
     :ivar int nSepcies: Number of saved species / individuals /
                         chromosomes.
@@ -760,7 +760,7 @@ def save_as_vcf(faSeq, ref, VCFFileName):
     This function saves the SNPs of *faSeq*, a given :class:`FaSeq`
     (fasta sequence) object in VCF format to the file *VCFFileName*.
     The reference genome *ref*, to which *faSeq* is compared to, needs
-    to be passed as a :class:`Seq <libPoMo.seqbase.Seq>` object.
+    to be passed as a :class:`Seq <cflib.seqbase.Seq>` object.
 
     The function compares all sequences in *faSeq* to the sequence
     given in *ref*.  The names of the individuals in the saved VCF
@@ -779,7 +779,7 @@ def save_as_vcf(faSeq, ref, VCFFileName):
       FORMAT = GT
 
     :param FaSeq faSeq: :class:`FaSeq` object to be converted.
-    :param Seq ref: :class:`Seq <libPoMo.seqbase.Seq>` object of the
+    :param Seq ref: :class:`Seq <cflib.seqbase.Seq>` object of the
                     reference sequence.
     :param str VCFFileName: Name of the VCF output file.
 

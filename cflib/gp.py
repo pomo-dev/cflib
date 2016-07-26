@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""libPoMo.gp
+"""cflib.gp
 =============
 
 A short library to read gene prediction files (.gp).
@@ -15,8 +15,8 @@ given two times.
 
 """
 
-import libPoMo.fasta as fasta
-import libPoMo.seqbase as sb
+import cflib.fasta as fasta
+import cflib.seqbase as sb
 
 class Exon():
     """An exon with start and end position."""

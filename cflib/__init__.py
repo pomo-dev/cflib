@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
-"""libPoMo
+"""cflib
 ----------------------------------------------------------------------
 
-Contains modules used by PoMo.
+Contains modules used by cflib.
 
 """
 
-import libPoMo.main
-import libPoMo.seqbase
-import libPoMo.fasta
-import libPoMo.vcf
-import libPoMo.cf
-import libPoMo.gp
+import cflib.main
+import cflib.seqbase
+import cflib.fasta
+import cflib.vcf
+import cflib.cf
+import cflib.gp

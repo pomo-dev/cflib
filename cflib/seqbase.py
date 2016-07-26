@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""libPoMo.seqbase
+"""cflib.seqbase
 ==================
 
 This module provides basic functions and classes needed to work with

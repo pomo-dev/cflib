@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""libPoMo.vcf
+"""cflib.vcf
 ==============
 
 This module provides functions to read, write and access vcf files.
@@ -33,7 +33,7 @@ Functions:
 
 __docformat__ = 'restructuredtext'
 
-import libPoMo.seqbase as sb
+import cflib.seqbase as sb
 
 dna2ind = {'a': 0, 'c': 1, 'g': 2, 't': 3}
 ind2dna = ['a', 'c', 'g', 't']

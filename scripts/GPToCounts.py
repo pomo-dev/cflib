@@ -13,8 +13,8 @@ for phylogenetic analysis).
 
 import argparse
 import logging
-import libPoMo.gp as gp
-import libPoMo.cf as cf
+import cflib.gp as gp
+import cflib.cf as cf
 
 descr = """Convert gene prediction file with reference to counts format.
 

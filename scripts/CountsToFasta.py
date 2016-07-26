@@ -14,7 +14,7 @@ chosen) as well (see command line options).
 
 import argparse
 import logging
-import libPoMo
+import cflib
 
 descr = """Convert counts to fasta format.
 
@@ -57,9 +57,9 @@ elif args.verbose == 2:
     logger.setLevel(logging.DEBUG)
 
 print("Initialize Counts File Stream.")
-cfStream = libPoMo.cf.CFStream(cfFN)
+cfStream = cflib.cf.CFStream(cfFN)
 
 print("Convert to fasta.")
-libPoMo.cf.cf_to_fasta(cfStream, output, consensus=consFl)
+cflib.cf.cf_to_fasta(cfStream, output, consensus=consFl)
 
 print("Done!")

@@ -10,8 +10,8 @@ written to a counts format file.
 import argparse
 import os
 import logging
-import libPoMo.fasta as fa
-import libPoMo.cf as cf  # noqa
+import cflib.fasta as fa
+import cflib.cf as cf  # noqa
 
 descr = """Convert fasta to counts format.
 

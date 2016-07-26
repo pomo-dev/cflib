@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""libPoMo.cf
+"""cflib.cf
 =============
 
 This model provides functions to read, write and access files that are
@@ -52,9 +52,9 @@ tabix is installed.
 
 A code example is::
 
-  import import_libPoMo
-  import libPoMo.fasta as fa
-  import libPoMo.cf as cf
+  import cflib
+  import cflib.fasta as fa
+  import cflib.cf as cf
 
   vcfFL = ["/path/to/vcf/file1", "/path/to/vcf/file2", "..."]
 
@@ -98,9 +98,9 @@ import pdb
 import os
 import copy
 
-import libPoMo.seqbase as sb
-import libPoMo.fasta as fasta
-import libPoMo.vcf as vcf
+import cflib.seqbase as sb
+import cflib.fasta as fasta
+import cflib.vcf as vcf
 import numpy as np
 
 # Honor IUPAC code.
@@ -194,7 +194,7 @@ class CFStream():
         if (lnL[0] != "COUNTSFILE") or (l != 5):
             raise NotACountsFormatFileError("First line is corrupt.")
         # TODO: The first line is needed by IQ-Tree, but not by
-        # libPoMo.  Maybe I should use this information here!
+        # cflib.  Maybe I should use this information here!
 
         ln = CFFile.readline()
 
@@ -357,7 +357,7 @@ def weighted_choice(lst):
 
 
 def faseq_append_base_of_cfS(faS, cfS, consensus=False):
-    """Append a :class:`CFStream` line to an :class:`libPoMo.fasta.FaSeq`.
+    """Append a :class:`CFStream` line to an :class:`cflib.fasta.FaSeq`.
 
     Randomly chooses bases for each position according to their
     abundance.
@@ -459,7 +459,7 @@ class CFWriter():
 
     If you want to compare the SNPs of the VCF files to a multiple
     alingment fasta stream (:class:`MFaStream
-    <libPoMo.fasta.MFaStream>`) consider the very convenient function
+    <cflib.fasta.MFaStream>`) consider the very convenient function
     :func:`write_cf_from_MFaStream`.
 
     To determine the different populations present in the VCF files,
@@ -532,7 +532,7 @@ class CFWriter():
     :ivar int nPop: Number of different populations in count format
         output file (e.g. number of populations).  Filled by
         *self.__init_assM()* during initialization.
-    :ivar Seq refSeq: :class:`Seq <libPoMo.seqbase.Seq>` object of the
+    :ivar Seq refSeq: :class:`Seq <cflib.seqbase.Seq>` object of the
         reference Sequence. This has to be set with :class:`set_seq`.
     :ivar int ploidy: Ploidy of individuals in vcf files.  This has to
         be set manually to the correct value for non-diploids!
@@ -723,7 +723,7 @@ class CFWriter():
         """Generate SNPs in region *rg* out of *self.vcfL*.
 
         Generator that returns the next SNP in region *rg*
-        (cf. :class:`Region <libPoMo.seqbase.Region>`) as a :class:`NucBase`
+        (cf. :class:`Region <cflib.seqbase.Region>`) as a :class:`NucBase`
         object.  To loop over all SNPs in region *rg*:
 
         >>> rg = sb.Region("chr1", 500000, 1000000)
@@ -775,17 +775,17 @@ class CFWriter():
         :param [int] iL: List with vcf indices of the SNPs in *snpL*,
             must be sorted.
         :param [NucBase] snpL: List with :class:`NucBase
-            <libPoMo.vcf.NucBase>` SNPs at this position. None, if
+            <cflib.vcf.NucBase>` SNPs at this position. None, if
             there is no SNP.
         :raises: :class:`NotAValidRefBase
-            <libPoMo.seqbase.NotAValidRefBase>`,
+            <cflib.seqbase.NotAValidRefBase>`,
             :class:`SequenceDataError
-            <libPoMo.seqbase.SequenceDataError>`
+            <cflib.seqbase.SequenceDataError>`
 
-        :class:`NotAValidRefBae <libPoMo.seqbase.NotAValidRefBase>` is
+        :class:`NotAValidRefBae <cflib.seqbase.NotAValidRefBase>` is
         raised if the reference base is not valid (e.g. N).
 
-        :class:`SequenceDataError <libPoMo.seqbase.SequenceDataError>`
+        :class:`SequenceDataError <cflib.seqbase.SequenceDataError>`
         is raised if the chromosome names do not match.
 
         """
@@ -953,7 +953,7 @@ class CFWriter():
     def write_Rn(self, rg):
         """Write lines in counts format to *self.outFN*.
 
-        :param Region rg: :class:`Region <libPoMo.seqbase.Region>`
+        :param Region rg: :class:`Region <cflib.seqbase.Region>`
                           object that determines the region that is
                           covered.
 
@@ -1111,7 +1111,7 @@ def write_cf_from_MFaStream(refMFaStr, cfWr):
     VCF files to a CCDC alignment.
 
     :param FMaStream refMFaStr: The reference :class:`MFaStream
-      <libPoMo.fasta.MFaStream>`.
+      <cflib.fasta.MFaStream>`.
     :param CFWriter cfWf: The :class:`CFWriter` object that contains
       the VCF files.
 
@@ -1133,7 +1133,7 @@ def write_cf_from_gp_stream(gp_stream, cfWr):
     is needed.
 
     :param GPStream gp_stream: The GP stream and reference :class:`GPStream
-      <libPoMo.gp.GPStream>`.
+      <cflib.gp.GPStream>`.
     :param CFWriter cfWf: The :class:`CFWriter` object that contains
       the VCF files.
 

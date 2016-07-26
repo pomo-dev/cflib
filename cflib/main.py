@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""libPoMo.main
+"""cflib.main
 ===============
 
 This library contains functions that are used by PoMo.
@@ -10,7 +10,7 @@ This library contains functions that are used by PoMo.
 import argparse
 import random
 from scipy.misc import comb as choose
-import libPoMo as lp
+import cflib as lp
 import os
 import pdb
 import time
