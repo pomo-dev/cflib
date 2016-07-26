@@ -48,7 +48,7 @@ the scripts only for this user but not system wide.
 Sample data can be found in [examples](./examples).  Assuming that
 have installed `cflib` we will now convert
 [`example.fasta`](./examples/example.fasta) to a counts file named
-`example_from_fasta.cf`.  The [script](Scripts) that we will use is
+`example_from_fasta.cf`.  The [script](#Scripts) that we will use is
 called [`FastaToCounts.py`](./scripts/FastaToCounts.py).  First, we
 have a look at the help message:
 
@@ -97,7 +97,7 @@ $ ./FastaToCounts.py example.fasta example_from_fasta.cf
 
 # Scripts #
 
-All conversion scripts can be found in the [scripts](Readme.md#Scripts)
+All conversion scripts can be found in the [scripts](./scripts)
 folder:
 
 - [CountsToFasta.py](./scripts/CountsToFasta.py): Convert a counts
