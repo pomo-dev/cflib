@@ -16,27 +16,28 @@ For a reference, please see and cite:
 
 # Requirements #
 
-Before installing, check that you have [`git`](https://github.com/)
-and [`python3`](https://www.python.org/) installed.  `cflib` also uses
-the following python libraries that need to be installed separately:
+Before installation, please check that you have
+[`git`](https://github.com/) and [`python3`](https://www.python.org/)
+installed.  `cflib` also uses the following python libraries that need
+to be installed separately:
 
 - [scipy](http://www.scipy.org/),
 - [numpy](http://www.numpy.org/) and
-- [pysam](http://code.google.com/p/pysam/)
+- [pysam](http://code.google.com/p/pysam/).
 
 # Installation #
 
 Download `cflib` with:
 
 ```sh
-git clone git://github.com/pomo-dev/cflib
+$ git clone git://github.com/pomo-dev/cflib
 ```
 
 This will create a folder `cflib` which includes the library and the
 conversion scripts.  In the folder `cflib`, execute
 
 ```sh
-python setyp.py install --user
+$ python setyp.py install --user
 ```
 
 The `--user` flag is optional and tells Python to install `cflib` and
@@ -45,13 +46,14 @@ the scripts only for this user but not system wide.
 # Example #
 
 Sample data can be found in [examples](./examples).  Assuming that
-have installed `cflib` we will now convert `example.fasta` to a counts
-file, name `example_from_fasta.cf`.  The [script](scripts) that we
-will use is called `FastaToCounts.py`.  First, we have a look at the
-help message:
+have installed `cflib` we will now convert
+[`example.fasta`](./examples/example.fasta) to a counts file named
+`example_from_fasta.cf`.  The [script](Scripts) that we will use is
+called [`FastaToCounts.py`](./scripts/FastaToCounts.py).  First, we
+have a look at the help message:
 
 ```sh
-FastaToCounts.py --help
+$ FastaToCounts.py --help
 ```
 
     usage: FastaToCounts.py [-h] [-v] [--iupac] fastaFile output
@@ -90,7 +92,7 @@ As requested, the sequence names in `example.fasta` are, e.g.,
 `example.fasta` into the counts file `example_from_fasta.cf`:
 
 ```sh
-./FastaToCounts.py example.fasta example_from_fasta.cf
+$ ./FastaToCounts.py example.fasta example_from_fasta.cf
 ```
 
 # Scripts #
