@@ -1,7 +1,7 @@
-# cflib
+# Counts file library
 
-`cflib` provides scripts to convert between fasta, VCF and counts
-files.  Counts files are used by
+This python library `cflib` provides scripts to convert between fasta,
+VCF and counts files.  Counts files are used by
 [PoMo](http://www.cibiv.at/software/iqtree/doc/Polymorphism-Aware-Models/),
 an implementation of a polymorphism-aware phylogenetic model.  We
 advice you to use PoMo implemented in
@@ -37,11 +37,17 @@ This will create a folder `cflib` which includes the library and the
 conversion scripts.  In the folder `cflib`, execute
 
 ```sh
-$ python setyp.py install --user
+$ easy_install --user .
 ```
 
 The `--user` flag is optional and tells Python to install `cflib` and
 the scripts only for this user but not system wide.
+
+If you want to uninstall `cflib`, you can `pip`
+
+```sh
+$ pip uninstall cflib
+```
 
 # Example
 
@@ -92,10 +98,10 @@ As requested, the sequence names in `example.fasta` are, e.g.,
 `example.fasta` into the counts file `example_from_fasta.cf`:
 
 ```sh
-$ ./FastaToCounts.py example.fasta example_from_fasta.cf
+$ FastaToCounts.py example.fasta example_from_fasta.cf
 ```
 
-# Conversion Scripts
+# Conversion scripts
 
 All conversion scripts can be found in the [scripts](./scripts)
 folder:
@@ -116,7 +122,10 @@ folder:
   sequence alignments with VCF files to counts format.
 
 Each script comes with its own documentation.  Please execute, e.g.,
-`./FastaToCounts.py --help`.
+
+```sh
+$ FastaToCounts.py --help
+```
 
 # Documentation
 

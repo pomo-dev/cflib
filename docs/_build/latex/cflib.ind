@@ -1,0 +1,176 @@
+\begin{theindex}
+\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
+
+  \bigletter A
+  \item a() (in module libPoMo.main), \hyperpage{5}
+  \item add\_base\_to\_sequence() (libPoMo.cf.CFWriter method), \hyperpage{22}
+  \item append\_nuc\_base() (libPoMo.vcf.VCFSeq method), \hyperpage{16}
+
+  \indexspace
+  \bigletter B
+  \item binom() (in module libPoMo.main), \hyperpage{5}
+
+  \indexspace
+  \bigletter C
+  \item cf\_to\_fasta() (in module libPoMo.cf), \hyperpage{23}
+  \item CFStream (class in libPoMo.cf), \hyperpage{20}
+  \item CFWriter (class in libPoMo.cf), \hyperpage{21}
+  \item check\_fixed\_field\_header() (in module libPoMo.vcf), \hyperpage{17}
+  \item close() (libPoMo.cf.CFWriter method), \hyperpage{22}
+  \item close() (libPoMo.fasta.FaStream method), \hyperpage{11}
+  \item close() (libPoMo.fasta.MFaStream method), \hyperpage{12}
+  \item close() (libPoMo.vcf.VCFStream method), \hyperpage{17}
+  \item CountsFormatWriterError, \hyperpage{23}
+
+  \indexspace
+  \bigletter D
+  \item dsRatio() (in module libPoMo.main), \hyperpage{5}
+
+  \indexspace
+  \bigletter F
+  \item FaSeq (class in libPoMo.fasta), \hyperpage{10}
+  \item faseq\_append\_base\_of\_cfS() (in module libPoMo.cf), \hyperpage{23}
+  \item fasta\_to\_cf() (in module libPoMo.cf), \hyperpage{23}
+  \item FaStream (class in libPoMo.fasta), \hyperpage{10}
+  \item filter\_mfa\_str() (in module libPoMo.fasta), \hyperpage{13}
+
+  \indexspace
+  \bigletter G
+  \item get\_alt\_base\_list() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item get\_base() (libPoMo.seqbase.Seq method), \hyperpage{7}
+  \item get\_base\_ind() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item get\_data\_from\_cf\_line() (in module libPoMo.main), \hyperpage{5}
+  \item get\_distance() (libPoMo.fasta.FaSeq method), \hyperpage{10}
+  \item get\_exon\_nr() (libPoMo.seqbase.Seq method), \hyperpage{7}
+  \item get\_header\_line\_string() (in module libPoMo.vcf), \hyperpage{18}
+  \item get\_header\_line\_string() (libPoMo.vcf.VCFSeq method), \hyperpage{16}
+  \item get\_in\_frame() (libPoMo.seqbase.Seq method), \hyperpage{7}
+  \item get\_indiv\_from\_field\_header() (in module libPoMo.vcf), \hyperpage{18}
+  \item get\_info() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item get\_nuc\_base() (libPoMo.vcf.VCFSeq method), \hyperpage{17}
+  \item get\_nuc\_base\_from\_line() (in module libPoMo.vcf), \hyperpage{18}
+  \item get\_out\_frame() (libPoMo.seqbase.Seq method), \hyperpage{8}
+  \item get\_rc() (libPoMo.seqbase.Seq method), \hyperpage{8}
+  \item get\_ref\_base() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item get\_region() (libPoMo.seqbase.Seq method), \hyperpage{8}
+  \item get\_region\_no\_description() (libPoMo.seqbase.Seq method), \hyperpage{8}
+  \item get\_seq\_base() (libPoMo.fasta.FaSeq method), \hyperpage{10}
+  \item get\_seq\_by\_id() (libPoMo.fasta.FaSeq method), \hyperpage{10}
+  \item get\_seq\_names() (libPoMo.fasta.FaSeq method), \hyperpage{10}
+  \item get\_species\_from\_cf\_headerline() (in module libPoMo.main), \hyperpage{5}
+  \item get\_speciesData() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item gz\_open() (in module libPoMo.seqbase), \hyperpage{9}
+
+  \indexspace
+  \bigletter H
+  \item has\_base() (libPoMo.vcf.VCFSeq method), \hyperpage{17}
+
+  \indexspace
+  \bigletter I
+  \item init\_seq() (in module libPoMo.fasta), \hyperpage{13}
+  \item init\_seq() (in module libPoMo.vcf), \hyperpage{18}
+  \item interpret\_cf\_line() (in module libPoMo.cf), \hyperpage{24}
+  \item is\_number() (in module libPoMo.main), \hyperpage{5}
+  \item is\_synonymous() (libPoMo.seqbase.Seq method), \hyperpage{8}
+
+  \indexspace
+  \bigletter L
+  \item libPoMo.cf (module), \hyperpage{18}
+  \item libPoMo.fasta (module), \hyperpage{9}
+  \item libPoMo.main (module), \hyperpage{5}
+  \item libPoMo.seqbase (module), \hyperpage{6}
+  \item libPoMo.vcf (module), \hyperpage{14}
+
+  \indexspace
+  \bigletter M
+  \item MFaStream (class in libPoMo.fasta), \hyperpage{12}
+  \item MFaStrFilterProps (class in libPoMo.fasta), \hyperpage{11}
+  \item mutModel() (in module libPoMo.main), \hyperpage{5}
+
+  \indexspace
+  \bigletter N
+  \item NoSynBase, \hyperpage{23}
+  \item NotACountsFormatFileError, \hyperpage{23}
+  \item NotAFastaFileError, \hyperpage{13}
+  \item NotANucBaseError, \hyperpage{15}
+  \item NotAValidRefBase, \hyperpage{7}
+  \item NotAVariantCallFormatFileError, \hyperpage{15}
+  \item NucBase (class in libPoMo.vcf), \hyperpage{15}
+
+  \indexspace
+  \bigletter O
+  \item open\_seq() (in module libPoMo.fasta), \hyperpage{13}
+  \item open\_seq() (in module libPoMo.vcf), \hyperpage{18}
+  \item orient() (libPoMo.fasta.MFaStream method), \hyperpage{12}
+
+  \indexspace
+  \bigletter P
+  \item print\_data() (libPoMo.seqbase.Seq method), \hyperpage{9}
+  \item print\_fa\_entry() (libPoMo.seqbase.Seq method), \hyperpage{9}
+  \item print\_fa\_header() (libPoMo.seqbase.Seq method), \hyperpage{9}
+  \item print\_header\_line() (libPoMo.vcf.VCFSeq method), \hyperpage{17}
+  \item print\_info() (libPoMo.fasta.FaSeq method), \hyperpage{10}
+  \item print\_info() (libPoMo.fasta.FaStream method), \hyperpage{11}
+  \item print\_info() (libPoMo.fasta.MFaStream method), \hyperpage{12}
+  \item print\_info() (libPoMo.seqbase.Region method), \hyperpage{7}
+  \item print\_info() (libPoMo.seqbase.Seq method), \hyperpage{9}
+  \item print\_info() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item print\_info() (libPoMo.vcf.VCFSeq method), \hyperpage{17}
+  \item print\_info() (libPoMo.vcf.VCFStream method), \hyperpage{17}
+  \item print\_msa() (libPoMo.fasta.MFaStream method), \hyperpage{12}
+  \item probability\_matrix() (in module libPoMo.main), \hyperpage{5}
+  \item purge() (libPoMo.seqbase.Seq method), \hyperpage{9}
+  \item purge() (libPoMo.vcf.NucBase method), \hyperpage{16}
+
+  \indexspace
+  \bigletter R
+  \item read\_align\_from\_fo() (in module libPoMo.fasta), \hyperpage{13}
+  \item read\_data\_write\_HyPhy\_input() (in module libPoMo.main), \hyperpage{5}
+  \item read\_next\_align() (libPoMo.fasta.MFaStream method), \hyperpage{12}
+  \item read\_next\_base() (libPoMo.vcf.VCFStream method), \hyperpage{17}
+  \item read\_next\_pos() (libPoMo.cf.CFStream method), \hyperpage{20}
+  \item read\_next\_seq() (libPoMo.fasta.FaStream method), \hyperpage{11}
+  \item read\_seq\_from\_fo() (in module libPoMo.fasta), \hyperpage{14}
+  \item Region (class in libPoMo.seqbase), \hyperpage{7}
+  \item rev\_comp() (libPoMo.seqbase.Seq method), \hyperpage{9}
+
+  \indexspace
+  \bigletter S
+  \item save\_as\_vcf() (in module libPoMo.fasta), \hyperpage{14}
+  \item selModel() (in module libPoMo.main), \hyperpage{6}
+  \item Seq (class in libPoMo.seqbase), \hyperpage{7}
+  \item SequenceDataError, \hyperpage{9}
+  \item set\_force() (libPoMo.cf.CFWriter method), \hyperpage{22}
+  \item set\_offset() (libPoMo.cf.CFWriter method), \hyperpage{22}
+  \item set\_ploidy() (libPoMo.cf.CFWriter method), \hyperpage{23}
+  \item set\_ploidy() (libPoMo.vcf.NucBase method), \hyperpage{16}
+  \item set\_rc() (libPoMo.seqbase.Seq method), \hyperpage{9}
+  \item set\_seq() (libPoMo.cf.CFWriter method), \hyperpage{23}
+  \item setGM() (in module libPoMo.main), \hyperpage{6}
+  \item setGS() (in module libPoMo.main), \hyperpage{6}
+  \item stripFName() (in module libPoMo.seqbase), \hyperpage{9}
+
+  \indexspace
+  \bigletter T
+  \item timeStr() (in module libPoMo.main), \hyperpage{6}
+  \item toggle\_rc() (libPoMo.seqbase.Seq method), \hyperpage{9}
+
+  \indexspace
+  \bigletter U
+  \item update\_base() (in module libPoMo.vcf), \hyperpage{18}
+
+  \indexspace
+  \bigletter V
+  \item VCFSeq (class in libPoMo.vcf), \hyperpage{16}
+  \item VCFStream (class in libPoMo.vcf), \hyperpage{17}
+
+  \indexspace
+  \bigletter W
+  \item weighted\_choice() (in module libPoMo.cf), \hyperpage{24}
+  \item write\_cf\_from\_gp\_stream() (in module libPoMo.cf), \hyperpage{24}
+  \item write\_cf\_from\_MFaStream() (in module libPoMo.cf), \hyperpage{24}
+  \item write\_HLn() (libPoMo.cf.CFWriter method), \hyperpage{23}
+  \item write\_Ln() (libPoMo.cf.CFWriter method), \hyperpage{23}
+  \item write\_Rn() (libPoMo.cf.CFWriter method), \hyperpage{23}
+
+\end{theindex}

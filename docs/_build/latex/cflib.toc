@@ -1,0 +1,17 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}cflib}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Contents}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}libPoMo.main}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}libPoMo.seqbase}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Objects}{6}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}libPoMo.fasta}{10}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Objects}{10}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}libPoMo.vcf}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Objects}{15}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}libPoMo.cf}{19}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}The Counts Format}{19}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Convert to Counts Format}{19}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Objects}{20}{subsection.2.5.3}
+\contentsline {chapter}{\numberline {3}Indices and tables}{25}{chapter.3}
+\contentsline {chapter}{Python Module Index}{27}{section*.119}
+\contentsline {chapter}{Index}{29}{section*.120}
