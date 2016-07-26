@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>libPoMo.main &mdash; PoMo 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="PoMo 1.1.0 documentation" href="index.html" />
+    <link rel="next" title="libPoMo.seqbase" href="seqbase.html" />
+    <link rel="prev" title="Welcome to the documentation of cflib!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="seqbase.html" title="libPoMo.seqbase"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the documentation of cflib!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PoMo 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-libPoMo.main"></span><div class="section" id="libpomo-main">
+<h1>libPoMo.main<a class="headerlink" href="#libpomo-main" title="Permalink to this headline">¶</a></h1>
+<p>This library contains functions that are used by PoMo.</p>
+<dl class="function">
+<dt id="libPoMo.main.a">
+<code class="descclassname">libPoMo.main.</code><code class="descname">a</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Watterson&#8217;s Theta coefficient.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.binom">
+<code class="descclassname">libPoMo.main.</code><code class="descname">binom</code><span class="sig-paren">(</span><em>s</em>, <em>p</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#binom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.binom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Binomial Distribution</p>
+<p>Calculate the binomial sampling probability (not very efficient,
+but not much effieciency is needed with small samples).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.dsRatio">
+<code class="descclassname">libPoMo.main.</code><code class="descname">dsRatio</code><span class="sig-paren">(</span><em>dsR</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#dsRatio"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.dsRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downsampling ratio <strong>type</strong> for argparse.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.get_data_from_cf_line">
+<code class="descclassname">libPoMo.main.</code><code class="descname">get_data_from_cf_line</code><span class="sig-paren">(</span><em>cfStr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#get_data_from_cf_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.get_data_from_cf_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in the data of a single counts format line.</p>
+<p>The return type is a list with the number of samples and a two
+dimensional array of the form data[species][nucleotide], where
+species is the index of the species and nucleotide is the index of
+the nucleotide (0,1,2 or 3 for a,c,g and t, respectively).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>CFStream</strong> (<em>cfStr</em>) &#8211; The CFStream pointing to the line to be
+read in.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">([int] n_samples, [[int]] data)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.get_species_from_cf_headerline">
+<code class="descclassname">libPoMo.main.</code><code class="descname">get_species_from_cf_headerline</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#get_species_from_cf_headerline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.get_species_from_cf_headerline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of species and the names fom a counts format header line.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> (<em>str</em>) &#8211; The header line.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">(int n_species, [str] sp_names)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.is_number">
+<code class="descclassname">libPoMo.main.</code><code class="descname">is_number</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#is_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.is_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if value is an integer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.mutModel">
+<code class="descclassname">libPoMo.main.</code><code class="descname">mutModel</code><span class="sig-paren">(</span><em>mm</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#mutModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.mutModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutation model <strong>type</strong> for argparse.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.probability_matrix">
+<code class="descclassname">libPoMo.main.</code><code class="descname">probability_matrix</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#probability_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.probability_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create probability matrices for the HyPhy batch file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.read_data_write_HyPhy_input">
+<code class="descclassname">libPoMo.main.</code><code class="descname">read_data_write_HyPhy_input</code><span class="sig-paren">(</span><em>fn</em>, <em>N</em>, <em>thresh</em>, <em>path_bf</em>, <em>muts</em>, <em>mutgamma</em>, <em>sels</em>, <em>selgamma</em>, <em>PoModatafile</em>, <em>PoModatafile_cons</em>, <em>theta=None</em>, <em>vb=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#read_data_write_HyPhy_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.read_data_write_HyPhy_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the count data and write the HyPhy input file.</p>
+<p>The provided filename has to point to a data file in counts format
+(cf. <a class="reference internal" href="cf.html"><span class="doc">cf</span></a>).  The data will be downsampled if necessary
+and the HyPhy batch and input files will be written.  The number
+of species, the species names, the number of species samples and
+the theta value (usr_def) will be returned in a tuple.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fn</strong> (<em>str</em>) &#8211; Counts format file name.</li>
+<li><strong>N</strong> (<em>int</em>) &#8211; Virtual population size.</li>
+<li><strong>thresh</strong> (<em>float</em>) &#8211; Trheshold of data discard for downsampling.</li>
+<li><strong>path_bf</strong> (<em>str</em>) &#8211; Path to the HyPhy batch files</li>
+<li><strong>muts</strong> (<em>str</em>) &#8211; Mutation model (<a class="reference internal" href="#libPoMo.main.mutModel" title="libPoMo.main.mutModel"><code class="xref py py-func docutils literal"><span class="pre">mutModel()</span></code></a>).</li>
+<li><strong>mutgamma</strong> (<em>str</em>) &#8211; Gamma of the mutation model (<a class="reference internal" href="#libPoMo.main.setGM" title="libPoMo.main.setGM"><code class="xref py py-func docutils literal"><span class="pre">setGM()</span></code></a>).</li>
+<li><strong>sels</strong> (<em>str</em>) &#8211; Selection model (<a class="reference internal" href="#libPoMo.main.selModel" title="libPoMo.main.selModel"><code class="xref py py-func docutils literal"><span class="pre">selModel()</span></code></a>).</li>
+<li><strong>selgamma</strong> (<em>str</em>) &#8211; Gamma of selection model (<a class="reference internal" href="#libPoMo.main.setGS" title="libPoMo.main.setGS"><code class="xref py py-func docutils literal"><span class="pre">setGS()</span></code></a>).</li>
+<li><strong>PoModatafile</strong> (<em>str</em>) &#8211; Path to HyPhy input file.</li>
+<li><strong>PoModatafile_cons</strong> (<em>str</em>) &#8211; Path to HyPhy input file.</li>
+<li><strong>vb</strong> (<em>Boolean</em>) &#8211; Verbosity.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(int n_species, [str] sp_names, [str] sp_samples, Boolean all_one,
+float usr_def)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.selModel">
+<code class="descclassname">libPoMo.main.</code><code class="descname">selModel</code><span class="sig-paren">(</span><em>sm</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#selModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.selModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selection model <strong>type</strong> for argparse.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.setGM">
+<code class="descclassname">libPoMo.main.</code><code class="descname">setGM</code><span class="sig-paren">(</span><em>gm</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#setGM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.setGM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set variable mutation rate, if <cite>gm</cite> is given.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.setGS">
+<code class="descclassname">libPoMo.main.</code><code class="descname">setGS</code><span class="sig-paren">(</span><em>gs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#setGS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.setGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set fixation bias, if <cite>gs</cite> is given.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.main.timeStr">
+<code class="descclassname">libPoMo.main.</code><code class="descname">timeStr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/main.html#timeStr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.main.timeStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time in human readable format.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to the documentation of <cite>cflib</cite>!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="seqbase.html"
+                        title="next chapter">libPoMo.seqbase</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/main.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="seqbase.html" title="libPoMo.seqbase"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to the documentation of cflib!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PoMo 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Dominik Schrempf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

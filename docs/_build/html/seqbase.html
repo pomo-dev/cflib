@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>libPoMo.seqbase &mdash; PoMo 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="PoMo 1.1.0 documentation" href="index.html" />
+    <link rel="next" title="libPoMo.fasta" href="fasta.html" />
+    <link rel="prev" title="libPoMo.main" href="main.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="fasta.html" title="libPoMo.fasta"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="libPoMo.main"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PoMo 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="module-libPoMo.seqbase"></span><div class="section" id="libpomo-seqbase">
+<h1>libPoMo.seqbase<a class="headerlink" href="#libpomo-seqbase" title="Permalink to this headline">¶</a></h1>
+<p>This module provides basic functions and classes needed to work with
+sequence data.</p>
+<div class="section" id="objects">
+<h2>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Classes:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#libPoMo.seqbase.Seq" title="libPoMo.seqbase.Seq"><code class="xref py py-class docutils literal"><span class="pre">Seq</span></code></a>, stores a single sequence</li>
+<li><a class="reference internal" href="#libPoMo.seqbase.Region" title="libPoMo.seqbase.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a>, region in a genome</li>
+</ul>
+</dd>
+<dt>Exception Classes:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#libPoMo.seqbase.SequenceDataError" title="libPoMo.seqbase.SequenceDataError"><code class="xref py py-class docutils literal"><span class="pre">SequenceDataError</span></code></a></li>
+<li><a class="reference internal" href="#libPoMo.seqbase.NotAValidRefBase" title="libPoMo.seqbase.NotAValidRefBase"><code class="xref py py-class docutils literal"><span class="pre">NotAValidRefBase</span></code></a></li>
+</ul>
+</dd>
+<dt>Functions:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#libPoMo.seqbase.stripFName" title="libPoMo.seqbase.stripFName"><code class="xref py py-func docutils literal"><span class="pre">stripFName()</span></code></a>, strip filename off its ending</li>
+</ul>
+</dd>
+</dl>
+<hr class="docutils" />
+<dl class="exception">
+<dt id="libPoMo.seqbase.NotAValidRefBase">
+<em class="property">exception </em><code class="descclassname">libPoMo.seqbase.</code><code class="descname">NotAValidRefBase</code><a class="reference internal" href="_modules/libPoMo/seqbase.html#NotAValidRefBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.NotAValidRefBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference base is not valid.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="libPoMo.seqbase.Region">
+<em class="property">class </em><code class="descclassname">libPoMo.seqbase.</code><code class="descname">Region</code><span class="sig-paren">(</span><em>chrom</em>, <em>start</em>, <em>end</em>, <em>name=None</em>, <em>orientation='+'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region in a genome.</p>
+<p>The start and end points need to be given 1-based and are
+converted to 0-based positions that are used internally to save
+all positional data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>chrom</strong> (<em>str</em>) &#8211; Chromosome name.</li>
+<li><strong>start</strong> (<em>int</em>) &#8211; 1-based start position.</li>
+<li><strong>end</strong> (<em>int</em>) &#8211; 1-based end position.</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; Optional, region name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>chrom</strong> (<em>str</em>) &#8211; Chromosome name.</li>
+<li><strong>start</strong> (<em>int</em>) &#8211; 0-based start position.</li>
+<li><strong>end</strong> (<em>int</em>) &#8211; 0-base end position.</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; Region name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="libPoMo.seqbase.Region.print_info">
+<code class="descname">print_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Region.print_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Region.print_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print information about the region.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="libPoMo.seqbase.Seq">
+<em class="property">class </em><code class="descclassname">libPoMo.seqbase.</code><code class="descname">Seq</code><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class that stores sequence data.
+.. _seqbase-seq:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>str</em>) &#8211; Name of the sequence (e.g. species or individual
+name).</li>
+<li><strong>descr</strong> (<em>str</em>) &#8211; Description of the sequence.</li>
+<li><strong>data</strong> (<em>str</em>) &#8211; String with sequence data.</li>
+<li><strong>dataLen</strong> (<em>int</em>) &#8211; Number of saved bases.</li>
+<li><strong>rc</strong> (<em>Boolean</em>) &#8211; True if <em>self.data</em> stores the
+reverse-complement of the real sequence.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_base">
+<code class="descname">get_base</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns base at 1-based position <cite>pos</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_exon_nr">
+<code class="descname">get_exon_nr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_exon_nr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_exon_nr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find the current and the total exon number of the sequence.</p>
+<p>Extract the exon number and the total number of exons, if the
+name of the sequence is of the form (cf. <a class="reference external" href="http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html#FASTA">UCSC Table Browser</a>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">CCDS3</span><span class="o">.</span><span class="mi">1</span><span class="n">_hg18_2_19</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">(int nEx, int nExTot)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#libPoMo.seqbase.SequenceDataError" title="libPoMo.seqbase.SequenceDataError"><code class="xref py py-class docutils literal"><span class="pre">SequenceDataError</span></code></a>, if the format of the
+sequence name is invalid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_in_frame">
+<code class="descname">get_in_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_in_frame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_in_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find the <cite>inFrame</cite> of the gene.</p>
+<p><cite>inFrame</cite>: the frame number of the first nucleotide in the
+exon. Frame numbers can be 0, 1, or 2 depending on what
+position that nucleotide takes in the codon which contains it.
+This function gets the <cite>inFrame</cite>, if the description of the
+sequence is of the form (cf. <a class="reference external" href="http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html#FASTA">UCSC Table Browser</a>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">918</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">chr1</span><span class="p">:</span><span class="mi">58954</span><span class="o">-</span><span class="mi">59871</span><span class="o">+</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#libPoMo.seqbase.SequenceDataError" title="libPoMo.seqbase.SequenceDataError"><code class="xref py py-class docutils literal"><span class="pre">SequenceDataError</span></code></a>, if format of description
+is invalid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_out_frame">
+<code class="descname">get_out_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_out_frame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_out_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find the <cite>outFrame</cite> of the gene.</p>
+<p><cite>outFrame</cite>: the frame number of the last nucleotide in the
+exon. Frame numbers can be 0, 1, or 2 depending on what
+position that nucleotide takes in the codon which contains it.
+This function gets the <cite>outFrame</cite>, if the description of the
+sequence is of the form (cf. <a class="reference external" href="http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html#FASTA">UCSC Table Browser</a>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">918</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">chr1</span><span class="p">:</span><span class="mi">58954</span><span class="o">-</span><span class="mi">59871</span><span class="o">+</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#libPoMo.seqbase.SequenceDataError" title="libPoMo.seqbase.SequenceDataError"><code class="xref py py-class docutils literal"><span class="pre">SequenceDataError</span></code></a>, if format of description
+is invalid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_rc">
+<code class="descname">get_rc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_rc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_rc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the sequence is reversed and complemented.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Boolean</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_region">
+<code class="descname">get_region</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find the <a class="reference internal" href="#libPoMo.seqbase.Region" title="libPoMo.seqbase.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a> that the sequence spans.</p>
+<p>The sequence might not physically start at position 1 but at
+some arbitrary value that is indicated in the sequence
+description.  This function gets this physical
+<a class="reference internal" href="#libPoMo.seqbase.Region" title="libPoMo.seqbase.Region"><code class="xref py py-class docutils literal"><span class="pre">Region</span></code></a>, if the description of the sequence is of the
+form (cf. <a class="reference external" href="http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html#FASTA">UCSC Table Browser</a>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">918</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">chr1</span><span class="p">:</span><span class="mi">58954</span><span class="o">-</span><span class="mi">59871</span><span class="o">+</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#libPoMo.seqbase.SequenceDataError" title="libPoMo.seqbase.SequenceDataError"><code class="xref py py-class docutils literal"><span class="pre">SequenceDataError</span></code></a>, if format of description
+is invalid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.get_region_no_description">
+<code class="descname">get_region_no_description</code><span class="sig-paren">(</span><em>offset=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.get_region_no_description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.get_region_no_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the region of the sequence.</p>
+<p>If no regional information is available in the sequence
+description (cf. <a class="reference internal" href="#libPoMo.seqbase.Seq.get_region" title="libPoMo.seqbase.Seq.get_region"><code class="xref py py-func docutils literal"><span class="pre">get_region()</span></code></a>), the position of the
+first base in the reference genome can be given
+manually. E.g., if the first base of the sequence does not
+correspond to the first but to the 11th base of the reference
+sequence, the offset should be 10.</p>
+<p>The name of the chromosome will be set to the name of the
+sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>offset</strong> (<em>int</em>) &#8211; Optional, offset of the sequence.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.is_synonymous">
+<code class="descname">is_synonymous</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.is_synonymous"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.is_synonymous" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the base at <cite>pos</cite> is 4-fold degenerate.</p>
+<p>This function checks if the base at <cite>pos</cite> is a synonymous one.
+The description of the sequence has to be of the form
+(cf. <a class="reference external" href="http://genome.ucsc.edu/goldenPath/help/hgTablesHelp.html#FASTA">UCSC Table Browser</a>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">918</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">chr1</span><span class="p">:</span><span class="mi">58954</span><span class="o">-</span><span class="mi">59871</span><span class="o">+</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>pos</strong> (<em>int</em>) &#8211; Position of the base in the sequence (0 to
+self.dataLen).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rtype Boolean:</th><td class="field-body">True if base is 4-fold degenerate.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#libPoMo.seqbase.SequenceDataError" title="libPoMo.seqbase.SequenceDataError"><code class="xref py py-class docutils literal"><span class="pre">SequenceDataError</span></code></a>, if format of description
+is invalid.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.print_data">
+<code class="descname">print_data</code><span class="sig-paren">(</span><em>fo=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.print_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.print_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the sequence data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>fo</strong> (<em>fileObject</em>) &#8211; Print to file object fo. Defaults to
+stdout.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.print_fa_entry">
+<code class="descname">print_fa_entry</code><span class="sig-paren">(</span><em>maxB=None</em>, <em>fo=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.print_fa_entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.print_fa_entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a fasta file entry with header and sequence data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>maxB</strong> (<em>int</em>) &#8211; Print a maximum of maxB bases. Default: print
+all bases.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.print_fa_header">
+<code class="descname">print_fa_header</code><span class="sig-paren">(</span><em>fo=&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.print_fa_header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.print_fa_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the sequence header line in fasta format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>fo</strong> (<em>fileObject</em>) &#8211; Print to file object fo. Defaults to
+stdout.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.print_info">
+<code class="descname">print_info</code><span class="sig-paren">(</span><em>maxB=50</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.print_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.print_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print sequence information.</p>
+<p>Print sequence name, description, the length of the sequence
+and a maximum of <cite>maxB</cite> bases (defaults to 50).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.purge">
+<code class="descname">purge</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.purge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.purge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Purge data saved in this sequence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.rev_comp">
+<code class="descname">rev_comp</code><span class="sig-paren">(</span><em>change_sequence_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.rev_comp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.rev_comp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverses and complements the sequence.</p>
+<p>This is rather slow for long sequences.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.set_rc">
+<code class="descname">set_rc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.set_rc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.set_rc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <em>self.rc</em>.</p>
+<p>The instance variable <em>self.rc</em> is a Boolean value that is
+true if the saved sequence is reversed and complemented.  This
+function sets this value according to the last character in
+the sequence description.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><em>ValueError()</em> if state could not be detected.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="libPoMo.seqbase.Seq.toggle_rc">
+<code class="descname">toggle_rc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#Seq.toggle_rc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.Seq.toggle_rc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle the state of <em>self.rc</em>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="libPoMo.seqbase.SequenceDataError">
+<em class="property">exception </em><code class="descclassname">libPoMo.seqbase.</code><code class="descname">SequenceDataError</code><a class="reference internal" href="_modules/libPoMo/seqbase.html#SequenceDataError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.SequenceDataError" title="Permalink to this definition">¶</a></dt>
+<dd><p>General sequence data error exception.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.seqbase.gz_open">
+<code class="descclassname">libPoMo.seqbase.</code><code class="descname">gz_open</code><span class="sig-paren">(</span><em>fn</em>, <em>mode='r'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#gz_open"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.gz_open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open file with io.open() or gzip.open().</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fn</strong> (<em>str</em>) &#8211; Name of the file to open.</li>
+<li><strong>md</strong> (<em>char</em>) &#8211; Mode &#8216;<strong>r</strong>&#8216; | &#8216;w&#8217;.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="libPoMo.seqbase.stripFName">
+<code class="descclassname">libPoMo.seqbase.</code><code class="descname">stripFName</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/libPoMo/seqbase.html#stripFName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#libPoMo.seqbase.stripFName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function to strip filename off the &#8221;.xyz&#8221; ending.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">libPoMo.seqbase</a><ul>
+<li><a class="reference internal" href="#objects">Objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="main.html"
+                        title="previous chapter">libPoMo.main</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fasta.html"
+                        title="next chapter">libPoMo.fasta</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/seqbase.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="fasta.html" title="libPoMo.fasta"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="libPoMo.main"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PoMo 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Dominik Schrempf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

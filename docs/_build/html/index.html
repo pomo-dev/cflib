@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to the documentation of cflib! &mdash; PoMo 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="PoMo 1.1.0 documentation" href="#" />
+    <link rel="next" title="libPoMo.main" href="main.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="libPoMo.main"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">PoMo 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-the-documentation-of-cflib">
+<h1>Welcome to the documentation of <cite>cflib</cite>!<a class="headerlink" href="#welcome-to-the-documentation-of-cflib" title="Permalink to this headline">¶</a></h1>
+<p>This library provides functions and classes to handle file conversion
+between standard formats (e.g., fasta or VCF files) to counts files
+that are used by <a class="reference external" href="http://www.cibiv.at/software/iqtree/">IQ-TREE</a>
+with <a class="reference external" href="http://www.cibiv.at/software/iqtree/doc/Polymorphism-Aware-Models/">PoMo</a>,
+and implementation of a polymorphism aware phylogenetic model.</p>
+<dl class="docutils">
+<dt>Created by:</dt>
+<dd><ul class="first last simple">
+<li>Dominik Schrempf</li>
+</ul>
+</dd>
+</dl>
+<p>For a reference, please see and cite: Schrempf, D., Minh, B. Q., De
+Maio, N., von Haeseler, A., &amp; Kosiol, C. (2016). Reversible
+Polmorphism-Aware Phylotenetic Models and their Application to Tree
+Inference. Journal of Theoretical Biology, in press.</p>
+<p>Feel free to post any suggestions, doubts and bugs.</p>
+</div>
+<div class="section" id="cflib">
+<h1>cflib<a class="headerlink" href="#cflib" title="Permalink to this headline">¶</a></h1>
+<p><cite>cflib</cite> contains several modules that ease the handling and
+preparation of data files in variant call format (vcf), fasta format
+and counts format (cf).</p>
+<dl class="docutils">
+<dt>The <em>libPoMo</em> package is split into the following modules:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="main.html"><span class="doc">main</span></a>: Contains functions that are used by PoMo.</li>
+<li><a class="reference internal" href="seqbase.html"><span class="doc">seqbase</span></a>: Provides basic functions and classes
+needed to work with sequence data.</li>
+<li><a class="reference internal" href="fasta.html"><span class="doc">fasta</span></a>: Provides functions to read, write and access
+fasta files.</li>
+<li><a class="reference internal" href="vcf.html"><span class="doc">vcf</span></a>: Provides functions to read, write and access vcf
+files.</li>
+<li><a class="reference internal" href="cf.html"><span class="doc">cf</span></a>: Provides functions to read, write and access files
+that are in counts format.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="main.html">libPoMo.main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqbase.html">libPoMo.seqbase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="seqbase.html#objects">Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fasta.html">libPoMo.fasta</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fasta.html#objects">Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vcf.html">libPoMo.vcf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vcf.html#objects">Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cf.html">libPoMo.cf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cf.html#the-counts-format">The Counts Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cf.html#convert-to-counts-format">Convert to Counts Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cf.html#objects">Objects</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to the documentation of <cite>cflib</cite>!</a></li>
+<li><a class="reference internal" href="#cflib">cflib</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="main.html"
+                        title="next chapter">libPoMo.main</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="libPoMo.main"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">PoMo 1.1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Dominik Schrempf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>
