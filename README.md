@@ -97,7 +97,7 @@ $ ./FastaToCounts.py example.fasta example_from_fasta.cf
 
 # Scripts #
 
-All conversion scripts can be found in the [scripts](./scripts/)
+All conversion scripts can be found in the [scripts](#Scripts)
 folder:
 
 - [CountsToFasta.py](./scripts/CountsToFasta.py): Convert a counts
