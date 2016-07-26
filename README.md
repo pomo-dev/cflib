@@ -1,4 +1,4 @@
-# cflib #
+# cflib
 
 `cflib` provides scripts to convert between fasta, VCF and counts
 files.  Counts files are used by
@@ -14,7 +14,7 @@ For a reference, please see and cite:
     Models and their Application to Tree Inference. Journal of
     Theoretical Biology, in press.
 
-# Requirements #
+# Requirements
 
 Before installation, please check that you have
 [`git`](https://github.com/) and [`python3`](https://www.python.org/)
@@ -25,7 +25,7 @@ to be installed separately:
 - [numpy](http://www.numpy.org/) and
 - [pysam](http://code.google.com/p/pysam/).
 
-# Installation #
+# Installation
 
 Download `cflib` with:
 
@@ -43,7 +43,7 @@ $ python setyp.py install --user
 The `--user` flag is optional and tells Python to install `cflib` and
 the scripts only for this user but not system wide.
 
-# Example #
+# Example
 
 Sample data can be found in [examples](./examples).  Assuming that
 have installed `cflib` we will now convert
@@ -95,7 +95,7 @@ As requested, the sequence names in `example.fasta` are, e.g.,
 $ ./FastaToCounts.py example.fasta example_from_fasta.cf
 ```
 
-# Scripts #
+# Scripts
 
 All conversion scripts can be found in the [scripts](./scripts)
 folder:
@@ -118,7 +118,7 @@ folder:
 Each script comes with its own documentation.  Please execute, e.g.,
 `./FastaToCounts.py --help`.
 
-# Documentation #
+# Documentation
 
 If you are interested in `cflib` itself, please refer to the
 [cflib reference manual](http://cflib.readthedocs.io/en/latest/).
