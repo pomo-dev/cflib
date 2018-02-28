@@ -1,11 +1,10 @@
 # Counts file library
 
-This python library `cflib` provides scripts to convert between fasta,
-VCF and counts files.  Counts files are used by
-[PoMo](http://www.cibiv.at/software/iqtree/doc/Polymorphism-Aware-Models/),
-an implementation of a polymorphism-aware phylogenetic model.  We
-advice you to use PoMo implemented in
-[IQ-TREE](http://www.cibiv.at/software/iqtree/).
+This python library `cflib` provides scripts to convert between fasta, VCF and
+counts files. Counts files are used by
+[PoMo](http://www.cibiv.at/software/iqtree/doc/Polymorphism-Aware-Models/), an
+implementation of a polymorphism-aware phylogenetic model. We advice you to use
+PoMo implemented in [IQ-TREE](http://www.cibiv.at/software/iqtree/).
 
 For a reference, please see and cite:
 
@@ -16,10 +15,9 @@ For a reference, please see and cite:
 
 # Requirements
 
-Before installation, please check that you have
-[`git`](https://github.com/) and [`python3`](https://www.python.org/)
-installed.  `cflib` also uses the following python libraries that need
-to be installed separately:
+Before installation, please check that you have [`git`](https://github.com/) and
+[`python (Version 3.x)`](https://www.python.org/) installed. `cflib` also uses
+the following python libraries that need to be installed separately:
 
 - [scipy](http://www.scipy.org/),
 - [numpy](http://www.numpy.org/) and
@@ -30,36 +28,38 @@ to be installed separately:
 Download `cflib` with:
 
 ```sh
-$ git clone git://github.com/pomo-dev/cflib
+git clone git://github.com/pomo-dev/cflib
 ```
 
 This will create a folder `cflib` which includes the library and the
 conversion scripts.  In the folder `cflib`, execute
 
 ```sh
-$ easy_install --user .
+easy_install --user .
 ```
+
+If the standard Python version of your operation system is still 2.x (e.g.,
+OSX), make sure that you use, e.g., `easy_install3`.
 
 The `--user` flag is optional and tells Python to install `cflib` and
 the scripts only for this user but not system wide.
 
-If you want to uninstall `cflib`, you can `pip`
+If you want to uninstall `cflib`, you can `pip` (or `pip3`)
 
 ```sh
-$ pip uninstall cflib
+pip uninstall cflib
 ```
 
 # Example
 
-Sample data can be found in [examples](./examples).  Assuming that
-have installed `cflib` we will now convert
-[`example.fasta`](./examples/example.fasta) to a counts file named
-`example_from_fasta.cf`.  The [script](#conversion-scripts) that we
-will use is called [`FastaToCounts.py`](./scripts/FastaToCounts.py).
+Sample data can be found in [examples](./examples). Assuming that have installed
+`cflib` we will now convert [`example.fasta`](./examples/example.fasta) to a
+counts file named `example_from_fasta.cf`. The [script](#conversion-scripts)
+that we will use is called [`FastaToCounts.py`](./scripts/FastaToCounts.py).
 First, we have a look at the help message:
 
 ```sh
-$ FastaToCounts.py --help
+FastaToCounts.py --help
 ```
 
     usage: FastaToCounts.py [-h] [-v] [--iupac] fastaFile output
@@ -98,7 +98,7 @@ As requested, the sequence names in `example.fasta` are, e.g.,
 `example.fasta` into the counts file `example_from_fasta.cf`:
 
 ```sh
-$ FastaToCounts.py example.fasta example_from_fasta.cf
+FastaToCounts.py example.fasta example_from_fasta.cf
 ```
 
 # Conversion scripts
@@ -124,7 +124,7 @@ folder:
 Each script comes with its own documentation.  Please execute, e.g.,
 
 ```sh
-$ FastaToCounts.py --help
+FastaToCounts.py --help
 ```
 
 # Documentation
