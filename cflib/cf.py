@@ -556,12 +556,13 @@ class CFWriter():
     """
     def __init__(self, vcfFileNameL, outFileName,
                  splitChar='-', mergeL=None, nameL=None,
-                 oneIndividual=False):
+                 oneIndividual=False, verb=None):
         # Passed variables.
         self.vcfL = vcfFileNameL
         self.outFN = outFileName
         self.mL = mergeL
         self.nL = nameL
+        self.vb = verb
         # Variables that are filled during initialization.
         self.nV = len(self.vcfL)
         self.vcfTfL = []
