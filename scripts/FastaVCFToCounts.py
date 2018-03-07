@@ -47,6 +47,12 @@ created by this script.
 The script can read and save standard text files or gzipped files.
 This has to be indicated by .gz file endings.
 
+NOTE: For each VCF file, each individual will be treated as if it came from a
+different population (unlike `FastaToCounts.py`). The recommended way to merge
+individuals into populations is creating a VCF file for each population which
+includes all the individuals (e.g., with vcftools) and then use the `-merge`
+option of this script.
+
 """
 
 parser = argparse.ArgumentParser(
