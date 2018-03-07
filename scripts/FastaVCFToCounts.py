@@ -53,6 +53,9 @@ individuals into populations is creating a VCF file for each population which
 includes all the individuals (e.g., with vcftools) and then use the `-merge`
 option of this script.
 
+You may prefer to convert your VCF that contained all taxa to a Fasta file with
+PGDSpider, and then use this in FastaToCounts.py.
+
 """
 
 parser = argparse.ArgumentParser(
