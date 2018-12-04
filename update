@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
-rm -r dist || \
-    python3 setup.py sdist bdist_wheel || \
-    twine upload dist/*
+if [ -d dist ]; then
+    rm -r dist
+elif [ -e dist ]; then
+    echo "File \"dist\" exists."
+    exit 1
+fi
+
+python3 setup.py sdist bdist_wheel || exit 1
+
+twine upload dist/*
