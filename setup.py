@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name='cflib-pomo',
-    version='1.2',
+    version='1.2.1',
     author='Dominik Schrempf',
     author_email='dominik.schrempf@gmail.com',
     description='Counts file library and conversion scripts.',
