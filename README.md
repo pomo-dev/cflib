@@ -15,9 +15,9 @@ For a reference, please see and cite:
 
 # Requirements
 
-Before installation, please check that you have [`git`](https://github.com/) and
-[`python (Version 3.x)`](https://www.python.org/) installed. `cflib` also uses
-the following python libraries that need to be installed separately:
+`cflib` requires [`python` (Version 3.x)](https://www.python.org/) to be
+installed. `cflib` also uses the following python libraries that will be
+automatically pulled when installing `cflib`:
 
 - [scipy](http://www.scipy.org/),
 - [numpy](http://www.numpy.org/) and
@@ -25,30 +25,28 @@ the following python libraries that need to be installed separately:
 
 # Installation
 
-Download `cflib` with:
+Install `cflib` and the conversion scripts with
 
 ```sh
-git clone git://github.com/pomo-dev/cflib
-```
-
-This will create a folder `cflib` which includes the library and the
-conversion scripts.  In the folder `cflib`, execute
-
-```sh
-easy_install --user .
+pip install --user cflib-pomo
 ```
 
 If the standard Python version of your operation system is still 2.x (e.g.,
-OSX), make sure that you use, e.g., `easy_install3`.
+OSX), make sure that you use, `pip3`.
 
 The `--user` flag is optional and tells Python to install `cflib` and
 the scripts only for this user but not system wide.
 
-If you want to uninstall `cflib`, you can `pip` (or `pip3`)
+If you want to uninstall `cflib`,
 
 ```sh
-pip uninstall cflib
+pip uninstall cflib-pomo
 ```
+
+The [conversion scripts](#Conversion scripts) should be directly available if
+your `PATH` environment variable is setup correctly. For my Linux installation,
+the Python path `~/.local/bin` had to be included. This may vary for your
+operating system.
 
 # Example
 
@@ -103,29 +101,29 @@ FastaToCounts.py example.fasta example_from_fasta.cf
 
 # Conversion scripts
 
-All conversion scripts can be found in the [scripts](./scripts)
-folder:
+- [CountsToFasta.py](./scripts/CountsToFasta.py): Convert a counts file to a
+  fasta file.
+- [FastaToCounts.py](./scripts/FastaToCounts.py): Convert a fasta file to counts
+  format.
+- [FastaToVCF.py](./scripts/FastaToVCF.py): Convert a fasta file to variant call
+  format.
+- [FastaVCFToCounts.py](./scripts/FastaVCFToCounts.py): Convert a fasta
+  reference with VCF files to counts format.
+- [FilterMSA.py](./scripts/FilterMSA.py): Filter a multiple sequence alignment
+  file (apply standard filters; cf. `libPoMo`).
+- [GPToCounts.py](./scripts/GPToCounts.py): Experimental. Convert gene
+  prediction files with reference to counts format.
+- [MSAToCounts.py](./scripts/MSAToCounts.py): Convert multiple sequence
+  alignments with VCF files to counts format.
 
-- [CountsToFasta.py](./scripts/CountsToFasta.py): Convert a counts
-  file to a fasta file.
-- [FastaToCounts.py](./scripts/FastaToCounts.py): Convert a fasta file
-  to counts format.
-- [FastaToVCF.py](./scripts/FastaToVCF.py): Convert a fasta file to
-  variant call format.
-- [FastaVCFToCounts.py](./scripts/FastaVCFToCounts.py): Convert a
-  fasta reference with VCF files to counts format.
-- [FilterMSA.py](./scripts/FilterMSA.py): Filter a multiple sequence
-  alignment file (apply standard filters; cf. `libPoMo`).
-- [GPToCounts.py](./scripts/GPToCounts.py): Experimental.  Convert
-  gene prediction files with reference to counts format.
-- [MSAToCounts.py](./scripts/MSAToCounts.py): Convert multiple
-  sequence alignments with VCF files to counts format.
-
-Each script comes with its own documentation.  Please execute, e.g.,
+Each script comes with its own documentation. Please execute, e.g.,
 
 ```sh
 FastaToCounts.py --help
 ```
+
+All conversion scripts can be found in the [scripts](./scripts) folder.
+
 
 # Documentation
 

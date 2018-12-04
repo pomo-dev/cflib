@@ -1,3 +1,4 @@
 build/
-cflib.egg-info/
+cflib_pomo.egg-info/
 cflib/__pycache__/
+dist/

@@ -3,9 +3,11 @@
 """cflib
 ----------------------------------------------------------------------
 
-Contains modules used by cflib.
+Import all counts file library modules.
 
 """
+
+name = "cflib"
 
 import cflib.main
 import cflib.seqbase
