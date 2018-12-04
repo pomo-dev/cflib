@@ -31,6 +31,9 @@ Install `cflib` and the conversion scripts with
 pip install --user cflib-pomo
 ```
 
+Note that the name of `cflib` on the PyPI repository (which is used by `pip`) is
+`cflib-pomo`, since the name `cflib` was taken!
+
 If the standard Python version of your operation system is still 2.x (e.g.,
 OSX), make sure that you use, `pip3`.
 
