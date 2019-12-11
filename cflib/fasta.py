@@ -327,13 +327,13 @@ class MFaStream():
 
         """
         if firstOnly is False:
-            l = self.nSpecies
+            length = self.nSpecies
         elif firstOnly is True:
-            l = 1
+            length = 1
         else:
             raise ValueError()
 
-        for i in range(l):
+        for i in range(length):
             if self.seqL[i].get_rc() is True:
                 self.seqL[i].rev_comp()
 
@@ -517,7 +517,7 @@ def filter_mfa_str(mfaStr, fp, verb=None):
                 # Stop codon pattern has been found.  Check if frame
                 # is not shifted.
                 inFr = s.get_in_frame()
-                if (m.start() + inFr) % 3 is 0:
+                if (m.start() + inFr) % 3 == 0:
                     if verb is not None:
                         print(s.name, "rejection;",
                               "A nonsense codon has been found.")
@@ -644,6 +644,7 @@ class FaSeq():
                     break
         return count
 
+
 def init_seq(faFileName, maxskip=50, name=None):
     """Open a fasta file and initialize an :class:`FaStream`.
 
@@ -704,13 +705,13 @@ def open_seq(faFileName, maxskip=50, name=None):
     """
     def test_sequence(faSequence):
         """Tests if sequences contain data."""
-        l = faSequence.nSpecies
+        length = faSequence.nSpecies
         names = []
-        for i in range(l):
+        for i in range(length):
             names.append(faSequence.seqL[i].name)
             if faSequence.seqL[i].name == '' or faSequence.seqL[i].data == '':
                 raise sb.SequenceDataError("Sequence name or data is missing.")
-        if l > len(set(names)):
+        if length > len(set(names)):
             raise sb.SequenceDataError("Sequence names are not unique.")
         return
 
@@ -786,12 +787,12 @@ def save_as_vcf(faSeq, ref, VCFFileName):
     """
     def get_altBases_string(sAltBases):
         """Return ALT bases string from given `sAltBases`."""
-        l = len(sAltBases)
-        if l == 0:
+        length = len(sAltBases)
+        if length == 0:
             return ''
         string = str(sAltBases[0])
-        if l > 1:
-            for i in range(1, l):
+        if length > 1:
+            for i in range(1, length):
                 string += ',' + sAltBases[i]
         return string
 
@@ -814,12 +815,12 @@ def save_as_vcf(faSeq, ref, VCFFileName):
         -> 0 for REF, 1 for first ALT and 2 for second ALT
 
         """
-        l = len(indivData)
+        length = len(indivData)
         if not (indivData[0] in altBases):
             string = '0'
         else:
             string = str(sAltBases.index(indivData[0]) + 1)
-        if l > 1:
+        if length > 1:
             for i in range(1, len(indivData)):
                 if not (indivData[i] in altBases):
                     string += '\t' + '0'

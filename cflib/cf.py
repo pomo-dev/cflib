@@ -105,7 +105,6 @@ __docformat__ = 'restructuredtext'
 import pysam as ps
 import logging
 import random
-import pdb
 import os
 import copy
 
@@ -151,8 +150,8 @@ def interpret_cf_line(ln):
     tmp = ln.strip()
     ln = tmp
     lnL = ln.split()
-    l = len(lnL)
-    if (l <= 2):
+    length = len(lnL)
+    if (length <= 2):
         raise NotACountsFormatFileError("Line contains no data.")
 
     chrom = lnL[0]
@@ -201,8 +200,8 @@ class CFStream():
 
         # Read in first line.
         lnL = ln.split()
-        l = len(lnL)
-        if (lnL[0] != "COUNTSFILE") or (l != 5):
+        length = len(lnL)
+        if (lnL[0] != "COUNTSFILE") or (length != 5):
             raise NotACountsFormatFileError("First line is corrupt.")
         # TODO: The first line is needed by IQ-Tree, but not by
         # cflib.  Maybe I should use this information here!
@@ -215,10 +214,10 @@ class CFStream():
 
         # Read in headerline.
         lnL = ln.split()
-        l = len(lnL)
+        length = len(lnL)
         indivL = []
         if (lnL[0] in ["CHROM", "Chrom"]) and (lnL[1] in ["POS", "Pos"]):
-            for i in range(2, l):
+            for i in range(2, length):
                 indivL.append(lnL[i].strip())
         else:
             raise NotACountsFormatFileError("Header line is corrupt.")
@@ -268,7 +267,7 @@ def fasta_to_cf(fastaFN, countsFN, splitChar='-', chromName="NA",
     The (aligned) sequences in the fasta file are read in and the data
     is written to a counts format file.
 
-    Sequence names are stripped at the first dash.  If the strupped
+    Sequence names are stripped at the first dash.  If the stripped
     sequence name coincide, individuals are put into the same
     population.
 
@@ -286,8 +285,8 @@ def fasta_to_cf(fastaFN, countsFN, splitChar='-', chromName="NA",
 
     """
 
-    FaStr = fasta.init_seq(fastaFN)
     logging.debug("Read in fasta file %s.", fastaFN)
+    FaStr = fasta.init_seq(fastaFN)
     seqL = [copy.deepcopy(FaStr.seq)]
 
     while (FaStr.read_next_seq() is not None):
@@ -305,7 +304,8 @@ def fasta_to_cf(fastaFN, countsFN, splitChar='-', chromName="NA",
     nSites = seqL[0].dataLen
     for s in seqL[1:]:
         if (nSites != s.dataLen):
-            raise sb.SequenceDataError("Sequences do not have equal length.")
+            raise("Sequences " + seqL[0].name +
+                  " and " + seqL[0].name + " do not have equal length.")
 
     logging.debug("Creating assignment list.")
     assL = []
@@ -625,7 +625,8 @@ class CFWriter():
             for ln in tf.header:
                 hLn = ln
             self.indM.append(
-                vcf.get_indiv_from_field_header(hLn.decode("utf-8")))
+                # vcf.get_indiv_from_field_header(hLn.decode("utf-8")))
+                vcf.get_indiv_from_field_header(hLn))
 
     def __init_nIndL(self):
         """Count individuals in each vcf file."""
@@ -648,12 +649,12 @@ class CFWriter():
             Returns new offset.
 
             """
-            l = [e.rsplit(self.splitCh, maxsplit=1)[0]
-                 for e in self.indM[n]]
+            length = [e.rsplit(self.splitCh, maxsplit=1)[0]
+                      for e in self.indM[n]]
             aL = []
-            cL = [l[0]]
+            cL = [length[0]]
             ddN = 0
-            for s in l:
+            for s in length:
                 try:
                     index = cL.index(s)
                     aL.append(n+dN+index)
