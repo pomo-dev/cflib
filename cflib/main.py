@@ -9,7 +9,7 @@ This library contains functions that are used by PoMo.
 
 import argparse
 import random
-from scipy.misc import comb as choose
+from scipy.special import comb as choose
 import cflib as lp
 import os
 import pdb
