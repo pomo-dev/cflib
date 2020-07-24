@@ -304,8 +304,8 @@ def fasta_to_cf(fastaFN, countsFN, splitChar='-', chromName="NA",
     nSites = seqL[0].dataLen
     for s in seqL[1:]:
         if (nSites != s.dataLen):
-            raise("Sequences " + seqL[0].name +
-                  " and " + seqL[0].name + " do not have equal length.")
+            raise ValueError("Sequences " + seqL[0].name + " and " +
+                             seqL[0].name + " do not have equal length.")
 
     logging.debug("Creating assignment list.")
     assL = []
