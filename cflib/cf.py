@@ -115,10 +115,10 @@ import numpy as np
 
 # Honor IUPAC code.
 dna = {'a': 0, 'c': 1, 'g': 2, 't': 3, 'u': 3, 'r': 5, 'y': 6, 's': 7,
-       'w': 8, 'k': 9, 'm': 10, 'b': 11, 'd': 12, 'h': 13, 'v': 15,
-       'n': 15, '.': 16, '-': 17}
+       'w': 8, 'k': 9, 'm': 10, 'b': 11, 'd': 12, 'h': 13, 'v': 14,
+       'n': 15, '.': 16, '-': 17, '*': 18}
 ind2dna = ['a', 'c', 'g', 't', 'u', 'r', 'y', 's', 'w', 'k',
-           'm', 'b', 'd', 'h', 'v', 'n', '.', '-']
+           'm', 'b', 'd', 'h', 'v', 'n', '.', '-', '*']
 
 
 class NotACountsFormatFileError(sb.SequenceDataError):
@@ -814,7 +814,7 @@ class CFWriter():
         def update_cD(pop, baseI, delta=self.ploidy):
             """Add counts to the countsDictionary cD."""
             # FIXME: IUPAC code not handled here.  Is this even necessary?
-            if baseI == dna['n']:
+            if baseI == dna['n'] or baseI == dna['*']:
                 logging.debug("Reference base is unknown.  Continue.")
                 return
             if pop in range(0, self.nPop):
