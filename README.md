@@ -102,6 +102,19 @@ As requested, the sequence names in `example.fasta` are, e.g.,
 FastaToCounts.py example.fasta example_from_fasta.cf
 ```
 
+# Note on IUPAC codes
+
+IUPAC codes are supported and handled adequately.
+
+In particular,
+
+- `N` can be used to denote any base or that the base is unknown; the letter `*`
+  can also be used in this case, although it is non-standard;
+
+- `-` or `.` denote a gap or a deletion.
+
+Also the other IUPAC codes are supported.
+
 # Conversion scripts
 
 - [CountsToFasta.py](./scripts/CountsToFasta.py): Convert a counts file to a
