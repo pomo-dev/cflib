@@ -296,7 +296,7 @@ def fasta_to_cf(fastaFN, countsFN, splitChar='-', chromName="NA",
     logging.debug("Number of sequences: %s", nSeqs)
 
     for s in seqL:
-        newName = s.name.rsplit(splitChar, maxsplit=1)[0]
+        newName = s.name.rsplit(splitChar)[0]
         s.name = newName
         # s.print_info()
 
