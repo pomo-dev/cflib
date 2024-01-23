@@ -107,7 +107,7 @@ faR = fa.init_seq(fastaRef)
 if offset is None:
     rg = faR.seq.get_region_no_description()
 else:
-    rg = faR.seq.get_region_no_description(offset)
+    rg = faR.seq.get_region_no_description(int(offset[0]))
 
 cfw.set_seq(faR.seq)
 cfw.write_HLn()

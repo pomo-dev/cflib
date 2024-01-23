@@ -179,8 +179,12 @@ class NucBase():
     def set_ploidy(self):
         """Set self.ploidy."""
         baseInfo = self.speciesData[0].split(':')[0]
-        # FIXME: Also split '|'.
-        self.ploidy = len(baseInfo.split('/'))
+        if '/' in baseInfo:
+            self.ploidy = len(baseInfo.split('/'))
+        elif '|' in baseInfo:
+            self.ploidy = len(baseInfo.split('|'))
+        else:
+            self.ploidy = 1
         return self.ploidy
 
     def get_speciesData(self):
@@ -210,8 +214,12 @@ class NucBase():
             else:
                 # Diploid or even more
                 baseInfo = self.speciesData[i].split(':')[0]
-                # FIXME: Also split '|'.
-                baseInfoL = baseInfo.split('/')
+                if '/' in baseInfo:
+                    baseInfoL = baseInfo.split('/')
+                elif '|' in baseInfo:
+                    baseInfoL = baseInfo.split('|')
+                else:
+                    baseInfoL = baseInfo
                 for j in range(len(baseInfoL)):
                     try:
                         baseInfoL[j] = int(baseInfoL[j])
