@@ -757,7 +757,7 @@ class CFWriter():
                 snpL.append(None)
         while True:
             if snpL == [None] * self.nV:
-                raise StopIteration()
+                return
             for i in range(self.nV):
                 if snpL[i] is not None:
                     minPos = snpL[i].pos
